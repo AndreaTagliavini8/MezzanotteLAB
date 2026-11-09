@@ -9,15 +9,16 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mezzanotte Lab">
 <meta property="og:description" content="Social media, contenuti, brand identity e merchandising per far crescere il tuo marchio.">
-<meta name="theme-color" content="#0F172A">
+<meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="logo.png">
 <link rel="stylesheet" href="style.css">
 <script>
-/* Tema scelto (o preferenza del sistema) applicato subito, per evitare lampeggi */
+/* Tema scuro di default (stile del brand), o quello scelto dall'utente, applicato subito */
 document.documentElement.classList.add('js');
-try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){}
+document.documentElement.dataset.theme='dark';try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Mezzanotte Lab","url":"https://www.example.it/","description":"Agenzia di social media management, contenuti, brand identity, customer service digitale e merchandising."}</script>
 </head>
@@ -36,7 +37,7 @@ try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dar
 
 <header class="hd" id="top">
 <div class="wrap hd-in">
-<a class="logo" href="#home" aria-label="Mezzanotte Lab, home">Mezzanotte<span>Lab</span></a>
+<a class="logo" href="#home" aria-label="Mezzanotte Lab, home"><img class="lg" src="logo.png" alt="" width="36" height="36"><span>mezzanottelab</span></a>
 <nav id="nav" aria-label="Principale">
 <a href="#chi-siamo">Chi siamo</a><a href="#servizi">Servizi</a><a href="#portfolio">Portfolio</a><a href="#testimonianze">Recensioni</a><a href="#faq">FAQ</a><a class="btn sm" href="#contatti">Contattaci</a>
 </nav>
@@ -48,17 +49,14 @@ try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dar
 <main id="main">
 <!-- HERO -->
 <section class="hero" id="home">
+<div class="sky" id="sky" aria-hidden="true"></div>
 <div class="wrap hero-in">
 <div>
 <h1>Il tuo brand, acceso anche a mezzanotte.</h1>
 <p class="lead">Social, contenuti, identità visiva, assistenza clienti e merchandising: un unico partner creativo per far crescere il tuo marchio, con risultati che si misurano.</p>
 <p><a class="btn" href="#contatti">Richiedi una consulenza gratuita</a> <a class="btn ghost" href="#servizi">Guarda i servizi</a></p>
 </div>
-<svg class="moon" viewBox="0 0 200 200" role="img" aria-label="Luna crescente circondata da stelle">
-<defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06B6D4"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
-<path d="M150 14a88 88 0 1 0 36 134 72 72 0 0 1-36-134z" fill="url(#mg)"/>
-<g fill="#fff" class="tw"><path d="M60 30l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/><path d="M168 96l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/><path d="M110 172l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g>
-</svg>
+<div class="emb"><img class="lg" src="logo.png" alt="Stemma di Mezzanotte Lab" width="240" height="240"></div>
 </div>
 </section>
 
@@ -167,7 +165,7 @@ try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dar
 
 <footer class="ft">
 <div class="wrap fgrid">
-<div><a class="logo" href="#home">Mezzanotte<span>Lab</span></a><p>Social, contenuti, brand e merchandising per marchi che vogliono farsi notare.</p></div>
+<div><a class="logo" href="#home"><img class="lg" src="logo.png" alt="" width="36" height="36"><span>mezzanottelab</span></a><p>Social, contenuti, brand e merchandising per marchi che vogliono farsi notare.</p></div>
 <nav aria-label="Menu rapido"><h3>Menu</h3><a href="#chi-siamo">Chi siamo</a><a href="#servizi">Servizi</a><a href="#portfolio">Portfolio</a><a href="#faq">FAQ</a><a href="#contatti">Contatti</a></nav>
 <div><h3>Social</h3><a href="https://www.instagram.com/mezzanottelab/" rel="noopener">Instagram</a><a href="#" rel="noopener">Facebook</a><a href="#" rel="noopener">LinkedIn</a></div>
 <div><h3>Contatti</h3><a href="mailto:info@example.it">info@example.it</a><a href="tel:+390000000000">+39 000 000 0000</a></div>

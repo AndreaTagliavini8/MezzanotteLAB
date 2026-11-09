@@ -5,6 +5,24 @@
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* --- Stemma: usa logo.png se presente, altrimenti una versione disegnata in SVG --- */
+  var SP = '<path d="M50 14.5C50.6 22 50.8 26 55 28.5L45 28.5C49.2 26 49.4 22 50 14.5Z"/>';
+  var LOGO = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#000"/><g fill="#fff"><circle cx="50" cy="50" r="23"/>' + SP + '<g transform="translate(0,100) scale(1,-1)">' + SP + '</g></g><ellipse cx="50" cy="50" rx="16" ry="22" fill="#000"/><g fill="#fff"><rect x="49.4" y="28" width="1.2" height="17"/><rect x="49.4" y="55" width="1.2" height="17"/></g></svg>');
+  $$('img.lg').forEach(function (im) {
+    im.onerror = function () { im.onerror = null; im.src = LOGO; };
+    if (im.complete && im.naturalWidth === 0) im.onerror();
+  });
+
+  /* --- Stelle che brillano nell'hero --- */
+  var sky = $('#sky');
+  if (sky && !reduce) {
+    for (var q = 0; q < 40; q++) {
+      var st = document.createElement('i'), z = Math.random() * 2 + 1;
+      st.style.cssText = 'left:' + Math.random() * 100 + '%;top:' + Math.random() * 100 + '%;width:' + z + 'px;height:' + z + 'px;animation-duration:' + (2 + Math.random() * 5) + 's;animation-delay:-' + Math.random() * 6 + 's';
+      sky.appendChild(st);
+    }
+  }
+
   /* --- Anno nel footer --- */
   $('#yr').textContent = new Date().getFullYear();
 
@@ -39,12 +57,12 @@
 
   /* --- Portfolio: dati di esempio (aggiungi "img": "immagini/file.jpg" per usare una foto vera) --- */
   var progetti = [
-    { n: 'Notte d\'Estate', c: 'Social Media', d: 'Calendario editoriale e crescita della community per un locale.', g: ['#3B82F6', '#06B6D4'] },
-    { n: 'Casa Aurora', c: 'Brand Identity', d: 'Logo, palette e linee guida per un brand di arredo.', g: ['#0F172A', '#3B82F6'] },
-    { n: 'Reel Atelier', c: 'Contenuti', d: 'Serie di Reel e shooting per una collezione moda.', g: ['#06B6D4', '#0F172A'] },
-    { n: 'Pronto Subito', c: 'Customer Service', d: 'Assistenza multicanale e gestione delle recensioni.', g: ['#1D4ED8', '#06B6D4'] },
-    { n: 'Linea Notturna', c: 'Merchandising', d: 'Felpe e t-shirt personalizzate per il lancio di un evento.', g: ['#0F172A', '#06B6D4'] },
-    { n: 'Box Stella', c: 'Packaging', d: 'Packaging su misura con stampa a due colori.', g: ['#3B82F6', '#0F172A'] }
+    { n: 'Notte d\'Estate', c: 'Social Media', d: 'Calendario editoriale e crescita della community per un locale.', g: ['#2c2c30', '#000'] },
+    { n: 'Casa Aurora', c: 'Brand Identity', d: 'Logo, palette e linee guida per un brand di arredo.', g: ['#52525B', '#0A0A0B'] },
+    { n: 'Reel Atelier', c: 'Contenuti', d: 'Serie di Reel e shooting per una collezione moda.', g: ['#A1A1AA', '#18181B'] },
+    { n: 'Pronto Subito', c: 'Customer Service', d: 'Assistenza multicanale e gestione delle recensioni.', g: ['#3F3F46', '#000'] },
+    { n: 'Linea Notturna', c: 'Merchandising', d: 'Felpe e t-shirt personalizzate per il lancio di un evento.', g: ['#71717A', '#111113'] },
+    { n: 'Box Stella', c: 'Packaging', d: 'Packaging su misura con stampa a due colori.', g: ['#D4D4D8', '#27272A'] }
   ];
   var port = $('#port');
   progetti.forEach(function (p) {
